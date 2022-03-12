@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="uva-university" ng-controller="uva-ctrl">
+
+<p>Type a keyword in the input field:</p>
+
+<p><input type="text" ng-model="searchInput"></p>
+
+<ul>
+  <li ng-repeat="x in faculties | filter:searchInput">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('uva-university', []).controller('uva-ctrl', function($scope) {
+  $scope.faculties = [
+"Faculty of Animal Science & Export Agriculture",
+"Faculty of Applied Sciences",
+"Faculty of Management",
+"Faculty of Technological Studies"
+];
+
+
+});
+</script>
+
+<p>The list will only consists of faculties matching the filter.</p>
+
+
+</body>
+</html>
